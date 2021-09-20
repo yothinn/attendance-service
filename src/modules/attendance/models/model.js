@@ -11,7 +11,7 @@ var AttendanceSchema = new Schema({
     },
     dateTime: {
         type: Date,
-        // required: 'Please fill a Attendance date_time',
+        default: Date.now
     },
     type: {
         type: String,//string is in or out

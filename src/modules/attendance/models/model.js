@@ -9,9 +9,14 @@ var AttendanceSchema = new Schema({
         type: String,
         // required: 'Please fill a Attendance employeeId',
     },
-    dateTime: {
-        type: Date,
-        default: Date.now
+    dateTime:{
+        type: Date
+    },
+    workIn:{
+        type: Date
+    },
+    workOut:{
+        type: String,  
     },
     type: {
         type: String,//string is in or out

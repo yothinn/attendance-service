@@ -22,13 +22,7 @@ var mongoose = require('mongoose'),
         let query = { $and: [] };
     
         // Query id, customer name
-        if (searchText) {
-            query['$and'].push({
-                $or: [
-                    { id: { $regex: `^${searchText}`, $options: "i" } }
-                ]
-            })
-        }
+    
     
     
         // Reset query when no parameter
@@ -60,12 +54,12 @@ var mongoose = require('mongoose'),
     
         try {
             const [_result, _count] = await Promise.all([
-                Attendance.find(query)
+                Attendance.find(req.query,query)
                     .skip(size * (pageNo - 1))
                     .limit(size)
                     .sort(sort)
                     .exec(),
-                Attendance.countDocuments(query).exec()
+                Attendance.countDocuments(req.query).exec()
             ]);
     
             //console.log(_result);

@@ -5,18 +5,17 @@ var Schema = mongoose.Schema;
 
 
 var AttendanceSchema = new Schema({
-    id: {
+    employeeId: {
         type: String,
         // required: 'Please fill a Attendance employeeId',
     },
-    dateTime:{
-        type: Date
+    date:{
+        type: Date,
+        default: Date.now
     },
-    workIn:{
-        type: Date
-    },
-    workOut:{
-        type: String,  
+    time:{
+        type: Date,
+        default: Date.now
     },
     type: {
         type: String,//string is in or out
